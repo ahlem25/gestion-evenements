@@ -35,8 +35,8 @@ class HomeController extends Controller
             ->select('id', 'name', 'max_capacity', 'date')
             ->get()
             ->map(function ($event) {
-                $event->current_capacity = $event->registrations_count;
-                $event->remaining_capacity = $event->max_capacity - $event->registrations_count;
+                $event->current_capacity = $event->registrations()->count();
+                $event->remaining_capacity = $event->max_capacity - $event->registrations()->count();
                 return $event;
             });
 

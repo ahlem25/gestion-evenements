@@ -54,7 +54,7 @@ class RegistrationController extends AppBaseController
 //        return redirect(route('registrations.index'));
 //    }
 
-    public function store(Request $request, $eventId)
+    public function register(Request $request, $eventId)
     {
         $event = Event::findOrFail($eventId);
         $user = auth()->user(); // Get the logged-in user

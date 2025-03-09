@@ -19,8 +19,11 @@
 @endcan
 
 @can('register events')
-    <a class="btn btn-primary float-right"
-       href="{{ route('registrations.create') }}">
-        Register
-    </a>
+    <form action="{{ route('events.register', $id) }}" method="POST">
+        @csrf
+        <button type="submit" class="btn btn-primary float-right"
+           href="{{ route('registrations.create') }}">
+            Register
+        </button>
+    </form>
 @endcan
