@@ -13,7 +13,7 @@ return [
 
         'migration'         => database_path('migrations/'),
 
-        'model'             => base_path('App/Models'),
+        'model'             => base_path('App/Models/'),
 
         'datatables'        => app_path('DataTables/'),
 
