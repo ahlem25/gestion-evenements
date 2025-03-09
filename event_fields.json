@@ -1,0 +1,52 @@
+[
+    {
+      "name": "name",
+      "dbType": "string",
+      "htmlType": "text",
+      "validations": "required"
+    },
+    {
+      "name": "date",
+      "dbType": "datetime",
+      "htmlType": "date",
+      "validations": "required"
+    },
+    {
+      "name": "location",
+      "dbType": "string",
+      "htmlType": "text",
+      "validations": "required"
+    },
+    {
+      "name": "description",
+      "dbType": "text",
+      "htmlType": "textarea",
+      "validations": "required"
+    },
+    {
+      "name": "image",
+      "dbType": "string",
+      "htmlType": "file",
+      "validations": "nullable|image"
+    },
+    {
+      "name": "capacity",
+      "dbType": "integer",
+      "htmlType": "number",
+      "validations": "required|integer|min:1"
+    },
+    {
+      "name": "created_at",
+      "dbType": "timestamp",
+      "htmlType": "hidden",
+      "inForm": false,
+      "inIndex": false
+    },
+    {
+      "name": "updated_at",
+      "dbType": "timestamp",
+      "htmlType": "hidden",
+      "inForm": false,
+      "inIndex": false
+    }
+  ]
