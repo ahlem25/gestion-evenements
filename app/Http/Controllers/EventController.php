@@ -108,7 +108,7 @@ class EventController extends AppBaseController
         $event = $this->eventRepository->update($request->all(), $id);
 
         // begin image section
-        if($request->file('photo'))
+        if($request->file('image'))
         {
             //delete old
             $exists = Storage::disk('public')->exists('events_images',$event->image);

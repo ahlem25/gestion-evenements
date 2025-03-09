@@ -9,7 +9,7 @@
 @role('Admin')
 <li class="nav-item">
     <a href="{{ route('events.index') }}" class="nav-link {{ Request::is('events*') ? 'active' : '' }}">
-        <i class="nav-icon fas fa-home"></i>
+        <i class="nav-icon fas fa-calendar-minus"></i>
         <p>Events</p>
     </a>
 </li>
@@ -18,7 +18,7 @@
 @role('User')
 <li class="nav-item">
     <a href="{{ route('events.index') }}" class="nav-link {{ Request::is('events*') ? 'active' : '' }}">
-        <i class="nav-icon fas fa-home"></i>
+        <i class="nav-icon fas fa-calendar-minus"></i>
         <p>Subscribe To Events</p>
     </a>
 </li>
