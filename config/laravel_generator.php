@@ -13,7 +13,7 @@ return [
 
         'migration'         => database_path('migrations/'),
 
-        'model'             => base_path('App/'),
+        'model'             => base_path('App/Models'),
 
         'datatables'        => app_path('DataTables/'),
 
@@ -65,7 +65,7 @@ return [
 
     'namespace' => [
 
-        'model'             => 'App',
+        'model'             => 'App\Models',
 
         'datatables'        => 'App\DataTables',
 
