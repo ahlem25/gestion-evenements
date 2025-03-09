@@ -2,14 +2,14 @@
 
 namespace App\Repositories;
 
-use App\Models\Event;
+use App\Models\Registration;
 use App\Repositories\BaseRepository;
-class EventRepository extends BaseRepository
+
+class RegistrationRepository extends BaseRepository
 {
     protected $fieldSearchable = [
-        'name',
-        'date',
-        'location',
+        'user_id',
+        'registration_date'
     ];
 
     public function getFieldsSearchable(): array
@@ -19,6 +19,6 @@ class EventRepository extends BaseRepository
 
     public function model(): string
     {
-        return Event::class;
+        return Registration::class;
     }
 }

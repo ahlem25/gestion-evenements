@@ -19,5 +19,8 @@
 @endcan
 
 @can('register events')
-
+    <a class="btn btn-primary float-right"
+       href="{{ route('registrations.create') }}">
+        Register
+    </a>
 @endcan

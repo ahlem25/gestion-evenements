@@ -2,11 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
- use Illuminate\Database\Eloquent\SoftDeletes; use Illuminate\Database\Eloquent\Factories\HasFactory;
+ use Illuminate\Database\Eloquent\Model;
+ use Illuminate\Database\Eloquent\SoftDeletes;
+ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Event extends Model
 {
-     use SoftDeletes;    use HasFactory;    public $table = 'events';
+     use SoftDeletes;    use HasFactory;
+
+     public $table = 'events';
 
     public $fillable = [
         'name',
@@ -35,5 +38,14 @@ class Event extends Model
         'max_capacity' => 'required|integer|min:1'
     ];
 
-    
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'registrations')
+            ->withPivot('registration_date')
+            ->withTimestamps();
+    }
+    public function registrations()
+    {
+        return $this->hasMany(Registration::class);
+    }
 }

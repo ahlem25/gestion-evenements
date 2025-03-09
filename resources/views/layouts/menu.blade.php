@@ -13,6 +13,13 @@
         <p>Events</p>
     </a>
 </li>
+
+<li class="nav-item">
+    <a href="{{ route('registrations.index') }}" class="nav-link {{ Request::is('registrations*') ? 'active' : '' }}">
+        <i class="nav-icon fas fa-list"></i>
+        <p>Registrations</p>
+    </a>
+</li>
 @endrole
 
 @role('User')
