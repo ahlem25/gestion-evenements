@@ -7,12 +7,14 @@
     "require": {
         "php": "^8.1",
         "appzcoder/crud-generator": "^4.0",
-        "guzzlehttp/guzzle": "^7.2",
+        "doctrine/dbal": "^3.9",
+        "guzzlehttp/guzzle": "^7.9",
         "infyomlabs/laravel-generator": "^6.0",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
         "laravelcollective/html": "^6.4",
+        "mailgun/mailgun-php": "^4.3",
         "spatie/laravel-permission": "^6.16",
         "yajra/laravel-datatables": "10.0",
         "yajra/laravel-datatables-buttons": "10.0",
@@ -20,6 +22,7 @@
         "yajra/laravel-datatables-oracle": "^10.3.1"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.15",
         "fakerphp/faker": "^1.9.1",
         "infyomlabs/adminlte-templates": "^6.0",
         "laravel/breeze": "^1.29",
