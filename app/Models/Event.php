@@ -34,7 +34,7 @@ class Event extends Model
         'date' => 'required|date',
         'location' => 'required|max:255',
         'description' => 'required',
-        'image' => 'nullable|image|mimes:jpg,jpeg,png,gif',
+        'image' => 'nullable|image|mimes:jpg,jpeg,png,gif,webp',
         'max_capacity' => 'required|integer|min:1'
     ];
 

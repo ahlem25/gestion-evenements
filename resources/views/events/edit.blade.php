@@ -19,7 +19,7 @@
 
         <div class="card">
 
-            {!! Form::model($event, ['route' => ['events.update', $event->id], 'method' => 'patch']) !!}
+            {!! Form::model($event, ['route' => ['events.update', $event->id], 'method' => 'patch', 'enctype' => 'multipart/form-data']) !!}
 
             <div class="card-body">
                 <div class="row">
