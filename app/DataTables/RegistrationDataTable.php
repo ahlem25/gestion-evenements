@@ -17,6 +17,12 @@ class RegistrationDataTable extends DataTable
     public function dataTable($query)
     {
         $dataTable = new EloquentDataTable($query);
+        $dataTable->addColumn('User', function ($registration) {
+            return $registration->user->name;
+        });
+        $dataTable->addColumn('Event', function ($registration) {
+            return $registration->event->name;
+        });
 
         return $dataTable->addColumn('action', 'registrations.datatables_actions');
     }
@@ -66,7 +72,8 @@ class RegistrationDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'user_id',
+            'User',
+            'Event',
             'registration_date'
         ];
     }

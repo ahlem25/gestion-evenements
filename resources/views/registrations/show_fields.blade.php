@@ -1,13 +1,13 @@
 <!-- User Id Field -->
 <div class="col-sm-12">
-    {!! Form::label('user_id', 'User Id:') !!}
-    <p>{{ $registration->user_id }}</p>
+    {!! Form::label('user_id', 'Username:') !!}
+    <p>{{ $registration->user->name }}</p>
 </div>
 
-<!-- Event Id Field -->
+<!-- Event  Field -->
 <div class="col-sm-12">
-    {!! Form::label('event_id', 'Event Id:') !!}
-    <p>{{ $registration->event_id }}</p>
+    {!! Form::label('event_id', 'Event Name:') !!}
+    <p>{{ $registration->event->name }}</p>
 </div>
 
 <!-- Registration Date Field -->

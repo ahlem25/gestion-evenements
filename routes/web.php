@@ -35,5 +35,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 Route::resource('events', App\Http\Controllers\EventController::class);
-Route::resource('registrations', App\Http\Controllers\RegistrationController::class);
+Route::get('registrations', [App\Http\Controllers\RegistrationController::class, 'index'])->name('registrations.index');
+Route::get('registrations/{registration}', [App\Http\Controllers\RegistrationController::class, 'show'])->name('registrations.show');
 Route::post('/events/{eventId}/register', [App\Http\Controllers\RegistrationController::class, 'register'])->name('events.register');

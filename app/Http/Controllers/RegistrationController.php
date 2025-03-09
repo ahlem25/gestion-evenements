@@ -35,25 +35,6 @@ class RegistrationController extends AppBaseController
     /**
      * Show the form for creating a new Registration.
      */
-    public function create()
-    {
-        return view('registrations.create');
-    }
-
-    /**
-     * Store a newly created Registration in storage.
-     */
-//    public function store(CreateRegistrationRequest $request)
-//    {
-//        $input = $request->all();
-//
-//        $registration = $this->registrationRepository->create($input);
-//
-//        Flash::success('Registration saved successfully.');
-//
-//        return redirect(route('registrations.index'));
-//    }
-
     public function register(Request $request, $eventId)
     {
         $event = Event::findOrFail($eventId);
@@ -96,61 +77,4 @@ class RegistrationController extends AppBaseController
         return view('registrations.show')->with('registration', $registration);
     }
 
-    /**
-     * Show the form for editing the specified Registration.
-     */
-    public function edit($id)
-    {
-        $registration = $this->registrationRepository->find($id);
-
-        if (empty($registration)) {
-            Flash::error('Registration not found');
-
-            return redirect(route('registrations.index'));
-        }
-
-        return view('registrations.edit')->with('registration', $registration);
-    }
-
-    /**
-     * Update the specified Registration in storage.
-     */
-    public function update($id, UpdateRegistrationRequest $request)
-    {
-        $registration = $this->registrationRepository->find($id);
-
-        if (empty($registration)) {
-            Flash::error('Registration not found');
-
-            return redirect(route('registrations.index'));
-        }
-
-        $registration = $this->registrationRepository->update($request->all(), $id);
-
-        Flash::success('Registration updated successfully.');
-
-        return redirect(route('registrations.index'));
-    }
-
-    /**
-     * Remove the specified Registration from storage.
-     *
-     * @throws \Exception
-     */
-    public function destroy($id)
-    {
-        $registration = $this->registrationRepository->find($id);
-
-        if (empty($registration)) {
-            Flash::error('Registration not found');
-
-            return redirect(route('registrations.index'));
-        }
-
-        $this->registrationRepository->delete($id);
-
-        Flash::success('Registration deleted successfully.');
-
-        return redirect(route('registrations.index'));
-    }
 }
