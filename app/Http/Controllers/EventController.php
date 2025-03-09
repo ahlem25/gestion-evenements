@@ -9,7 +9,7 @@ use App\Http\Controllers\AppBaseController;
 use App\Repositories\EventRepository;
 use Illuminate\Http\Request;
 use Flash;
-
+use Illuminate\Support\Facades\Storage;
 class EventController extends AppBaseController
 {
     /** @var EventRepository $eventRepository*/
@@ -44,6 +44,14 @@ class EventController extends AppBaseController
     public function store(CreateEventRequest $request)
     {
         $input = $request->all();
+
+        // begin image section
+        if($request->file('image'))
+        {
+            $path = Storage::disk('public')->put('events_images',$request->file('image'));
+            $input->fill(['image'=> asset($path)]);
+        }
+        // end image section
 
         $event = $this->eventRepository->create($input);
 
@@ -99,6 +107,20 @@ class EventController extends AppBaseController
 
         $event = $this->eventRepository->update($request->all(), $id);
 
+        // begin image section
+        if($request->file('photo'))
+        {
+            //delete old
+            $exists = Storage::disk('public')->exists('events_images',$event->image);
+
+            if($exists)
+            {
+                $file = basename($event->image);
+                Storage::disk('public')->delete('events_images/'.$file);
+            }
+        }
+        // end image section
+
         Flash::success('Event updated successfully.');
 
         return redirect(route('events.index'));
@@ -117,6 +139,15 @@ class EventController extends AppBaseController
             Flash::error('Event not found');
 
             return redirect(route('events.index'));
+        }
+
+        // delete event image
+        $exists = Storage::disk('public')->exists('events_images',$event->image);
+
+        if($exists)
+        {
+            $file = basename($event->image);
+            Storage::disk('public')->delete('events_images/'.$file);
         }
 
         $this->eventRepository->delete($id);

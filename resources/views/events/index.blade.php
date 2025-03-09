@@ -8,10 +8,12 @@
                     <h1>Events</h1>
                 </div>
                 <div class="col-sm-6">
-                    <a class="btn btn-primary float-right"
-                       href="{{ route('events.create') }}">
-                        Add New
-                    </a>
+                    @role('Admin')
+                        <a class="btn btn-primary float-right"
+                           href="{{ route('events.create') }}">
+                            Add New
+                        </a>
+                    @endrole
                 </div>
             </div>
         </div>

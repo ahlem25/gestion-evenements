@@ -25,7 +25,8 @@
 <!-- Image Field -->
 <div class="col-sm-12">
     {!! Form::label('image', 'Image:') !!}
-    <p>{{ $event->image }}</p>
+{{--    <p>{{ $event->image }}</p>--}}
+    <img src="{!! $event->image !!}">
 </div>
 
 <!-- Max Capacity Field -->

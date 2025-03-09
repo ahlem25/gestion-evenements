@@ -61,6 +61,24 @@ In order to ensure that the Laravel community is welcoming to all, please review
 
 If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
+## Commands : 
+1. Create storage link : 
+```shell
+php artisan storage:link
+```
+2. Fresh migration:
+```shell
+ php artisan migrate:fresh
+```
+3. Seed database:
+```shell
+php artisan migrate --seed
+```
+or run only one seed: 
+```shell
+php artisan db:seed --class=RoleSeeder
+```
+
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).

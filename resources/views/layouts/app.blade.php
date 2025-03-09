@@ -15,8 +15,10 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item dropdown user-menu">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                            <img src="https://assets.infyom.com/logo/blue_logo_150x150.png"
-                                class="user-image img-circle elevation-2" alt="User Image">
+{{--                            <img src="https://assets.infyom.com/logo/blue_logo_150x150.png"--}}
+{{--                                class="user-image img-circle elevation-2" alt="User Image">--}}
+                            <img class="user-image img-circle elevation-2" src="https://cdn4.iconfinder.com/data/icons/avatars-21/512/avatar-circle-human-male-3-512.png" alt="User profile picture">
+
                             <span class="d-none d-md-inline">
                                 @if (Auth::check())
                                     {{ Auth::user()->name }}
@@ -28,8 +30,10 @@
                         <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                             <!-- User image -->
                             <li class="user-header bg-primary">
-                                <img src="https://assets.infyom.com/logo/blue_logo_150x150.png"
-                                    class="img-circle elevation-2" alt="User Image">
+{{--                                <img src="https://assets.infyom.com/logo/blue_logo_150x150.png"--}}
+{{--                                    class="img-circle elevation-2" alt="User Image">--}}
+                                <img class="img-circle elevation-2" src="https://cdn4.iconfinder.com/data/icons/avatars-21/512/avatar-circle-human-male-3-512.png" alt="User profile picture">
+
                                 <p>
                                     @if (Auth::check())
                                         {{ Auth::user()->name }}
@@ -71,10 +75,7 @@
 
             <!-- Main Footer -->
             <footer class="main-footer">
-                <div class="float-right d-none d-sm-block">
-                    <b>Version</b> 3.1.0
-                </div>
-                <strong>Copyright &copy; 2014-2023 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights
+                <strong>Copyright &copy; 2025 <a href="https://iteam-univ.tn/">Iteam University</a>.</strong> All rights
                 reserved.
             </footer>
         </div>
