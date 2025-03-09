@@ -7,6 +7,10 @@ use App\Repositories\BaseRepository;
 
 class RegistrationRepository extends BaseRepository
 {
+    public function __construct(Registration $registration)
+    {
+        $this->setModel($registration);
+    }
     protected $fieldSearchable = [
         'user_id',
         'registration_date'

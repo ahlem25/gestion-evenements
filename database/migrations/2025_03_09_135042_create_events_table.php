@@ -19,7 +19,7 @@ return new class extends Migration
             $table->date('date');
             $table->string('location');
             $table->text('description');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->integer('max_capacity');
             $table->timestamps();
             $table->softDeletes();
