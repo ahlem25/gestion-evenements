@@ -9,6 +9,7 @@ use App\Http\Controllers\AppBaseController;
 use App\Repositories\EventRepository;
 use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 class EventController extends AppBaseController
 {
@@ -46,10 +47,10 @@ class EventController extends AppBaseController
         $input = $request->all();
 
         // begin image section
-        if($request->file('image'))
-        {
-            $path = Storage::disk('public')->put('events_images',$request->file('image'));
-            $input->fill(['image'=> asset($path)]);
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
+            $imageName = Str::random(40) . '.' . $request->file('image')->getClientOriginalExtension();
+            $path = $request->file('image')->storeAs('events_images', $imageName, 'public');
+            $input['image'] = asset('storage/' . $path);
         }
         // end image section
 
@@ -104,22 +105,24 @@ class EventController extends AppBaseController
 
             return redirect(route('events.index'));
         }
-
-        $event = $this->eventRepository->update($request->all(), $id);
+        $data = $request->all();
 
         // begin image section
-        if($request->file('image'))
-        {
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
             //delete old
-            $exists = Storage::disk('public')->exists('events_images',$event->image);
-
+            $exists = Storage::disk('public')->exists('events_images', $event->image);
             if($exists)
             {
                 $file = basename($event->image);
                 Storage::disk('public')->delete('events_images/'.$file);
             }
+            // end delete bloc
+            $imageName = Str::random(40) . '.' . $request->file('image')->getClientOriginalExtension();
+            $path = $request->file('image')->storeAs('events_images', $imageName, 'public');
+            $data['image'] = asset('storage/' . $path);
         }
         // end image section
+        $event = $this->eventRepository->update($data, $id);
 
         Flash::success('Event updated successfully.');
 
