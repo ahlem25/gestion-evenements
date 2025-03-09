@@ -65,7 +65,7 @@ class EventController extends AppBaseController
      */
     public function show($id)
     {
-        $event = $this->eventRepository->find($id);
+        $event = $this->eventRepository->find($id, ['*'], ['registrations.user']);
 
         if (empty($event)) {
             Flash::error('Event not found');

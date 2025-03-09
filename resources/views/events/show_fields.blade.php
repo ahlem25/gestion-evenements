@@ -47,3 +47,29 @@
     <p>{{ $event->updated_at }}</p>
 </div>
 
+<!-- List of Participants -->
+<div class="col-sm-12">
+    <h2>List of Participants</h2>
+    @if($event->registrations->isEmpty())
+        <p>No participants yet.</p>
+    @else
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>E-mail</th>
+                <th>Registration Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach($event->registrations as $registration)
+                <tr>
+                    <td>{{ $registration->user->name }}</td>
+                    <td>{{ $registration->user->email }}</td>
+                    <td>{{ $registration->created_at->format('d/m/Y H:i') }}</td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
+    @endif
+</div>
